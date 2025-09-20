@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomainBuy - Free Domain & Website Builder</title>
+    <style>
+        :root {
+            --primary: #4a6cf7;
+            --secondary: #6c757d;
+            --success: #28a745;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --background: #f0f4f8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--secondary);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .domain-search {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .search-box {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            font-size: 16px;
+        }
+        
+        .search-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .tld-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .tld-option {
+            padding: 8px 15px;
+            background: var(--light);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .tld-option.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .features {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .builder-preview {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .builder-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .builder-toolbar {
+            display: flex;
+            background: #eee;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .toolbar-item {
+            padding: 8px 15px;
+            background: white;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .builder-canvas {
+            height: 400px;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .template-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        
+        .template-img {
+            height: 200px;
+            background: #ddd;
+        }
+        
+        .template-info {
+            padding: 15px;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .search-input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .search-btn {
+                border-radius: 5px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">DomainBuy</div>
+                <div class="nav-links">
+                    <a href="#">Domains</a>
+                    <a href="#">Builder</a>
+                    <a href="#">Templates</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Login</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Get Your Free Domain & Website</h1>
+            <p>Register your free domain name and build a professional website with our easy-to-use HTML website builder.</p>
+            
+            <div class="domain-search">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Find your perfect domain name...">
+                    <button class="search-btn">Search</button>
+                </div>
+                <div class="tld-options">
+                    <div class="tld-option active">.com</div>
+                    <div class="tld-option">.net</div>
+                    <div class="tld-option">.org</div>
+                    <div class="tld-option">.info</div>
+                    <div class="tld-option">.site</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Everything You Need to Get Online</h2>
+                <p>Our all-in-one platform makes it easy to get your website live in minutes</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Free Domain Name</h3>
+                    <p>Get a free domain name for your website with every annual plan. Choose from hundreds of TLDs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Drag & Drop Builder</h3>
+                    <p>Create beautiful websites with our intuitive HTML editor. No coding skills required.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Responsive</h3>
+                    <p>All websites created with our builder automatically look great on all devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="builder-preview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Easy-to-Use Website Builder</h2>
+                <p>Create your perfect website with our powerful HTML editor</p>
+            </div>
+            
+            <div class="builder-container">
+                <div class="builder-toolbar">
+                    <div class="toolbar-item">Add Text</div>
+                    <div class="toolbar-item">Add Image</div>
+                    <div class="toolbar-item">Add Button</div>
+                    <div class="toolbar-item">Add Section</div>
+                    <div class="toolbar-item">Styles</div>
+                </div>
+                <div class="builder-canvas">
+                    <p>Drag elements here to build your website</p>
+                </div>
+            </div>
+            
+            <h3 style="margin: 40px 0 20px;">Start with a Template</h3>
+            
+            <div class="template-grid">
+                <div class="template-card">
+                    <div class="template-img"></div>
+                    <div class="template-info">
+                        <h4>Business Template</h4>
+                        <p>Professional design for businesses</p>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-img"></div>
+                    <div class="template-info">
+                        <h4>Portfolio Template</h4>
+                        <p>Showcase your work beautifully</p>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-img"></div>
+                    <div class="template-info">
+                        <h4>Blog Template</h4>
+                        <p>Perfect for sharing your thoughts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo">DomainBuy</div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Support</a>
+                <a href="#">Contact</a>
+            </div>
+            <p>&copy; 2023 DomainBuy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Domain search functionality
+        const searchBtn = document.querySelector('.search-btn');
+        const searchInput = document.querySelector('.search-input');
+        const tldOptions = document.querySelectorAll('.tld-option');
+        
+        searchBtn.addEventListener('click', function() {
+            const domain = searchInput.value.trim();
+            if (domain) {
+                const selectedTld = document.querySelector('.tld-option.active').textContent;
+                alert(`Searching for domain: ${domain}${selectedTld}`);
+                // In a real application, this would check domain availability
+            } else {
+                alert('Please enter a domain name to search');
+            }
+        });
+        
+        // TLD selection
+        tldOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                tldOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Template selection
+        const templateCards = document.querySelectorAll('.template-card');
+        templateCards.forEach(card => {
+            card.addEventListener('click', function() {
+                alert('Template selected! This would open the builder with the chosen template.');
+            });
+        });
+    </script>
+</body>
+</html>
